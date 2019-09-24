@@ -1,0 +1,2 @@
+include ':app', ':kprobability'
+rootProject.name='Probability example'
