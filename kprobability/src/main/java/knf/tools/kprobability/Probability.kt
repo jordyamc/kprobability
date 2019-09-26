@@ -10,7 +10,6 @@ fun <T : Any> probabilityOf(
 }
 
 fun <T : Any> Probabilities.Builder<T>.item(item: T, probability: Double) {
-    check(probability > 0 && probability < 100) { "The probability needs to be between 1 and 99 %" }
     add(item, probability)
 }
 
