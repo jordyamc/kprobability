@@ -48,6 +48,13 @@ class Probabilities<T : Any>(private val list: List<Pair<Double, T>>) {
                 }
                 list = nList
             }
+            if (list.size == 2){
+                val nList: MutableList<Pair<Double, T>> = mutableListOf()
+                val sorted = list.sortedByDescending { it.first }
+                repeat(2){ nList.add(sorted[0].let { it.copy(first = it.first / 2) }) }
+                nList.add(sorted[1])
+                list = nList
+            }
             return Probabilities(list)
         }
     }
