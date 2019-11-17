@@ -10,6 +10,7 @@ class Probabilities<T : Any>(private val list: List<Pair<Double, T>>) {
     }
 
     private fun findItem(list: List<Pair<Double, T>>): T {
+        if (list.size == 1) return list[0].second
         var randomProb = Random.nextDouble(100.0)
         list.shuffled().forEach {
             randomProb -= it.first
