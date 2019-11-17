@@ -39,7 +39,7 @@ class Probabilities<T : Any>(private val list: List<Pair<Double, T>>) {
                 "Warning: Items sum is equal to 100%, the default item will have 0% probability",
                 IllegalStateException()
             )
-            if (default != null) {
+            if (default != null && sum < 100.0) {
                 add(default, 100.0 - sum)
             } else if (sum < 100.0) {
                 val nList: MutableList<Pair<Double, T>> = mutableListOf()
