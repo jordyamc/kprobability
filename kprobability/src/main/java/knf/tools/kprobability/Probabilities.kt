@@ -34,11 +34,6 @@ class Probabilities<T : Any>(private val list: List<Pair<Double, T>>) {
             var sum = 0.0
             list.forEach { sum += it.first }
             check(sum <= 100.0) { "The probability sum of all items needs to be equal or lower to 100%" }
-            if (default != null && sum == 100.0) Log.w(
-                "KProbability",
-                "Warning: Items sum is equal to 100%, the default item will have 0% probability",
-                IllegalStateException()
-            )
             if (default != null && sum < 100.0) {
                 add(default, 100.0 - sum)
             } else if (sum < 100.0) {
